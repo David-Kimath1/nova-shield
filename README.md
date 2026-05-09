@@ -1,209 +1,129 @@
-NOVA-SHIELD
-Category	Features
-Core Security	Face recognition login, Multi-face detection, Continuous identity verification, Automatic system lock
-Anti-Spoofing	Blink detection, Head movement tracking, Texture analysis, Photo/video attack prevention
-AI Monitoring	Behavioral learning, Anomaly detection, Usage pattern analysis, Smart security scoring
-Alerts	Telegram notifications, SMS alerts, Email alerts, Intruder snapshots
-Hardware	GPU/CUDA acceleration, CPU fallback, Automatic backend selection
-Encryption	AES-256 biometric vault, Secure key management, No plain image storage
-Dashboard	Live camera feed, Real-time status, Intruder logs, Web-based control
-Linux Integration	PAM module (optional), Systemd daemon, Startup applications
+# 🛡️ NOVA-SHIELD
 
-# Quick Start
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
+[![OS](https://img.shields.io/badge/OS-Linux%20Mint%20%2F%20Ubuntu-green.svg)](https://linuxmint.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
+[![GitHub Issues](https://img.shields.io/github/issues/David-Kimath1/nova-shield)](https://github.com/David-Kimath1/nova-shield/issues)
+
+**NOVA-SHIELD** is an advanced biometric security layer designed for Linux environments. It combines real-time face recognition, anti-spoofing countermeasures, and AI-driven behavioral monitoring to ensure your system remains secure even when you step away.
+
+---
+
+## 🚀 Features
+
+| Category | Key Features |
+| :--- | :--- |
+| **Core Security** | Face recognition login, Multi-face detection, Continuous identity verification, Auto-lock |
+| **Anti-Spoofing** | Blink detection, Head movement tracking, Texture analysis, Photo/video attack prevention |
+| **AI Monitoring** | Behavioral learning, Anomaly detection, Usage pattern analysis, Smart security scoring |
+| **Alerts** | Telegram notifications, SMS alerts, Email alerts, Intruder snapshots |
+| **Hardware** | GPU/CUDA acceleration, CPU fallback, Automatic backend selection |
+| **Encryption** | AES-256 biometric vault, Secure key management, No plain image storage |
+| **Dashboard** | Live camera feed, Real-time status, Intruder logs, Web-based control |
+
+---
+
+## 🛠️ Quick Start
+
+### 1. Installation
+```bash
 # Clone repository
-git clone https://github.com/David-Kimath1/nova-shield.git
-
-# Enter project directory
+git clone [https://github.com/David-Kimath1/nova-shield.git](https://github.com/David-Kimath1/nova-shield.git)
 cd nova-shield
 
 # Make scripts executable
 chmod +x scripts/*.sh
 
-# Install dependencies
+# Install system dependencies
 ./scripts/install_deps.sh
 
-# Register your face
-python3 register_first_face.py
-
-# Start the shield
-python3 minimal_shield.py
-
-| Requirement | Minimum                          |
-| ----------- | -------------------------------- |
-| OS          | Linux Mint / Ubuntu 20.04+       |
-| Python      | Python 3.8+                      |
-| RAM         | 4GB                              |
-| Webcam      | Required                         |
-| GPU         | Optional (NVIDIA CUDA supported) |
-
-1. Create Virtual Environment
 python3 -m venv venv
 source venv/bin/activate
-2. Upgrade Pip
 pip install --upgrade pip
-3. Install Core Dependencies
-pip install opencv-python face-recognition numpy
-pip install flask flask-socketio aiohttp
-pip install cryptography pyyaml python-dotenv
-4. Optional GPU Setup
-./scripts/setup_gpu.sh
-5. Configure Environment Variables
-cp .env.example .env
-nano .env
+pip install -r requirements.txt
 
-Add your API keys and configurations inside .env.
-
-6. Optional PAM Authentication Integration
-cd pam
-sudo ./install.sh
-cd ..
-Usage
-Activate Environment
-source venv/bin/activate
-Register Face
+# Register your face (Primary User)
 python3 register_first_face.py
-Start Security System
+
+# Start the core security shield
 python3 minimal_shield.py
-Start Web Dashboard
-python3 gui/dashboard.py
-Run as Background Service
-sudo systemctl start nova-shield
-Keyboard Shortcuts
-Key	Action
-q	Quit application
-r	Register new face
-SPACE	Capture face
-ESC	Cancel operation
-Commands Reference
-View Intruder Logs
-cat storage/logs/intrusions.json | jq '.[-5:]'
-View Captured Intruders
-ls -la storage/intruders/
-Check Service Status
-systemctl status nova-shield
-View Real-Time Logs
-journalctl -u nova-shield -f
-Lock System Immediately
-python3 -c "from security.lock_controller import LockController; LockController().lock()"
-Project Structure
+
+Requirement,Minimum Specification
+OS,Linux Mint / Ubuntu 20.04+
+Python,3.8+
+RAM,4GB
+Webcam,Standard USB or Integrated
+GPU,Optional (NVIDIA CUDA supported for faster inference)
+
+## 🛡️ Security Architecture
+
+**NOVA-SHIELD** operates on a multi-layered verification pipeline to ensure zero-trust security.
+
+1. **Ingestion**: Real-time frame capture via `vision/camera_stream.py`.
+2. **Verification**: Parallel processing of Face Matching, Liveness Detection, and Behavioral Scoring.
+3. **Action**: The Decision Engine evaluates the weighted risk score to trigger `ALLOW`, `ALERT`, or `LOCK` commands.
+
+### Risk Scoring Weights
+* **Face Match**: 35%
+* **Liveness Detection**: 30%
+* **Motion Analysis**: 20%
+* **Behavior Score**: 15%
+
+---
+
+## 📂 Project Structure
+
+```text
 nova-shield/
-│
-├── app/
-│   ├── main.py
-│   ├── config.py
-│   ├── logger.py
-│   └── event_bus.py
-│
-├── core/
-│   ├── engine.py
-│   ├── decision_engine.py
-│   └── risk_model.py
-│
-├── vision/
-│   ├── camera_stream.py
-│   ├── frame_processor.py
-│   ├── gpu_accelerator.py
-│   └── cpu_fallback.py
-│
-├── recognition/
-│   ├── face_encoder.py
-│   ├── face_matcher.py
-│   └── model_loader.py
-│
-├── antispoof/
-│   ├── blink_detector.py
-│   ├── motion_analyzer.py
-│   └── texture_check.py
-│
-├── ai/
-│   ├── behavior_model.py
-│   └── anomaly_detector.py
-│
-├── security/
-│   ├── action_handler.py
-│   ├── lock_controller.py
-│   └── intrusion_logger.py
-│
-├── notifications/
-│   ├── telegram_alert.py
-│   ├── sms_alert.py
-│   └── alert_router.py
-│
-├── gui/
-│   ├── dashboard.py
-│   ├── templates/
-│   └── static/
-│
-├── hardware/
-│   ├── gpu_detector.py
-│   └── backend_selector.py
-│
-├── encryption/
-│   ├── vault.py
-│   └── key_manager.py
-│
-├── pam/
-│   ├── pam_nova.c
-│   ├── build.sh
-│   └── install.sh
-│
-├── storage/
-│   ├── intruders/
-│   ├── logs/
-│   └── encrypted/
-│
-├── scripts/
-│   ├── install_deps.sh
-│   ├── setup_gpu.sh
-│   └── run.sh
-│
-├── tests/
-│   ├── test_face.py
-│   ├── test_spoof.py
-│   └── test_notifications.py
-│
-├── config.yaml
-├── requirements.txt
-└── README.md
-Security
-Encryption Standards
-Data Type	Method	Key Length
-Face Encodings	AES-256	256-bit
-User Profiles	Fernet	128-bit
-Behavioral Data	Encrypted JSON	256-bit
-Security Layers
-[Camera Input]
-     ↓
-[Face Detection] → [Anti-Spoofing] → [Liveness Check]
-     ↓                    ↓                  ↓
-[Face Matching] ← [Risk Scoring] ← [Behavior AI]
-     ↓
-[Decision Engine]
-     ↓
-[ALLOW] [ALERT] [LOCK]
-Risk Scoring Weights
-Feature	Weight
-Face Match	35%
-Liveness Detection	30%
-Motion Analysis	20%
-Behavior Score	15%
-Troubleshooting
+├── core/            # Decision engine & risk modeling
+├── vision/          # Camera stream & frame processing
+├── recognition/     # Face encoding & matching
+├── antispoof/       # Blink & texture analysis
+├── ai/              # Behavioral anomaly detection
+├── security/        # System lock & action handlers
+├── notifications/   # Telegram, SMS, & Email logic
+├── gui/             # Web-based dashboard & templates
+├── pam/             # Optional Linux PAM integration
+└── storage/         # Encrypted logs & intruder snapshots
+
+Shortcuts & Commands
+
+Keyboard Shortcuts
+Key,Action
+q,Quit application
+r,Register new face
+SPACE,Capture face
+ESC,Cancel operation
+
+CLI Reference
+
+    View Intruder Logs: cat storage/logs/intrusions.json | jq '.[-5:]'
+
+    Check Service Status: systemctl status nova-shield
+
+    Force Lock System: python3 -c "from security.lock_controller import LockController; LockController().lock()"
+
+🔧 Troubleshooting
 Camera Not Detected
+Bash
+
 ls /dev/video*
 sudo chmod 666 /dev/video0
+
 Face Recognition Import Error
+
+If dlib fails to compile, ensure you have build-essentials installed:
+Bash
+
 pip uninstall face_recognition dlib -y
 pip install dlib
 pip install face_recognition --no-cache-dir
 
-GPU Not Detected
-nvidia-smi
+📬 Contact & Support
 
-If there is no output:
+    Developer: David Kimathi
 
-Email: david.kimathi@example.com
-GitHub Issues: David-Kimath1/nova-shield/issues
-<div align="center">
+    Email: david.kimathi@example.com
 
-Built with Python and OpenCV for Linux Mint
-</div>
+    GitHub Issues: David-Kimath1/nova-shield/issues
