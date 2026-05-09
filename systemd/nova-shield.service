@@ -1,0 +1,27 @@
+[Unit]
+Description=NOVA-SHIELD Biometric Security System
+After=network.target multi-user.target
+Before=display-manager.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/nova-shield
+ExecStart=/usr/bin/python3 /opt/nova-shield/app/main.py
+ExecStop=/bin/kill -TERM $MAINPID
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=nova-shield
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/nova-shield/storage /tmp/nova-shield
+PrivateDevices=false
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA-SHIELD Security Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <h1>[SHIELD] NOVA-SHIELD Security System</h1>
+            <div class="status-badge" id="system-status">
+                <span class="status-dot"></span>
+                Monitoring
+            </div>
+        </header>
+        
+        <!-- Main Grid -->
+        <div class="grid">
+            <!-- Video Feed Panel -->
+            <div class="card video-card">
+                <h2>Live Camera Feed</h2>
+                <div class="video-container">
+                    <img src="/video_feed" alt="Camera Feed" class="video-feed">
+                </div>
+            </div>
+            
+            <!-- Security Status Panel -->
+            <div class="card status-card">
+                <h2>Security Status</h2>
+                <div class="security-level" id="security-level">
+                    <div class="level-safe">[SAFE] System Protected</div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Total Intrusions</span>
+                        <span class="stat-value" id="total-intrusions">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">High Risk</span>
+                        <span class="stat-value" id="high-risk">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Last 24h</span>
+                        <span class="stat-value" id="last-24h">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity Panel -->
+            <div class="card activity-card">
+                <h2>Recent Activity</h2>
+                <div class="activity-list" id="activity-list">
+                    <div class="activity-item">[INFO] System initialized</div>
+                    <div class="activity-item">[INFO] Camera active</div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions Panel -->
+            <div class="card actions-card">
+                <h2>Quick Actions</h2>
+                <button class="btn btn-lock" onclick="lockSystem()">[LOCK] Lock System Now</button>
+                <button class="btn btn-refresh" onclick="refreshData()">[REFRESH] Refresh Data</button>
+                <button class="btn btn-logs" onclick="viewLogs()">[LOGS] View Intruder Logs</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>
