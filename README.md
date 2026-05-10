@@ -1,4 +1,4 @@
-# NOVA-SHIELD
+.# NOVA-SHIELD
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -44,53 +44,62 @@ NOVA-SHIELD is a professional face recognition authentication system that distin
 
 ## Prerequisites
 
-```bash
 # System requirements
 # - Python 3.8 or higher
 # - Linux / macOS / Windows (WSL2 for camera)
 # - Webcam (built-in or external)
 # - 4GB RAM minimum
-Step 1: Clone Repository
+
+## Step 1: Clone Repository
 git clone https://github.com/David-Kimath1/nova-shield.git
 cd nova-shield
-Step 2: Create Virtual Environment
+
+## Step 2: Create Virtual Environment
 python3 -m venv venv
 source venv/bin/activate
 # On Windows:
 # venv\script\activate
-Step 3: Install Dependencies
+
+## Step 3: Install Dependencies
 pip install --upgrade pip
 pip install opencv-python face-recognition numpy flask scipy
-Step 4: Register Your Face
+
+## Step 4: Register Your Face
 python3 register_first_face.py
 Follow prompts:
 Enter your name
 Look at the camera
 Press SPACE to capture
 Press ESC to finish
-Step 5: Run the System
+
+## Step 5: Run the System
 python3 liveness_shield.py
 Open browser:
 http://localhost:8080
-Usage
-Authenitcation Flow
-1. Face Scanner Page
+
+## Usage
+### Authenitcation Flow
+
+### 1. Face Scanner Page
 Camera activates automatically
 Syste, detects face and analyzes liveness
 Checks for blinks, motion and texture patterns
 Green indicator = Live face detected
 Orange indicator = Photo/Video detected
-2. Verification Process
+
+### 2. Verification Process
 Real face: Shows confidence score and liveness percentage
 Photo attact: Displays "PHOTO DETECTED" warning
 Click "Verify Identity: or wait for auto-verification
-3. Bank Dashboard
+
+### 3. Bank Dashboard
 Shows account holder information
 Display current balance
 Lists recent transactions
 Session remains active while face is present
 
-Anti Spoofing Tests
+## Anti Spoofing Tests
+
 | Test Case                 | Expected Result                   |
 | ------------------------- | --------------------------------- |
 | Real face with blinks     | Access granted                    |
@@ -100,12 +109,12 @@ Anti Spoofing Tests
 | Real face with glasses    | Access granted (if registered)    |
 
 
-Face Registration
+## Face Registration
 To register multiple users:
 python3 register_first_face.py
 Enter a different name for each user
 
-Configuration
+## Configuration
 Edit bank account details:
 nano storage/bank_data.json
 Example configuration:
@@ -130,25 +139,29 @@ Example configuration:
     ]
 }
 
-Security Features
-Liveness Detection Methods
-Blink Detection (EAR)
+## Security Features
+### Liveness Detection Methods
+### Blink Detection (EAR)
 Calculates Eye Aspect Ratio
 Monitors natural blink patterns
 Threshold: EAR < 0.2 indicates blink
-Head Motion Analysis
+
+### Head Motion Analysis
 Tracks face position changes
 Detects natural head movement
 Rejects static images
-Texture Frequency Analysis
+
+### Texture Frequency Analysis
 Applies FFT to face region
 Detects screen moire patterns
 Identifies print artifacts
-Reflection Detection
+
+### Reflection Detection
 Identifies screen glare
 Detects unnatural bright spots
 Flags photo reflections
-Security Layers
+
+## Security Layers
 Camera Input
      ↓
 Face Detection
@@ -160,19 +173,23 @@ Face Recognition      Photo/Video Alert
 Authentication
      ↓
 Session Grant
-Troubleshooting
-Camera Not Detected
+
+## Troubleshooting
+### Camera Not Detected
 ls /dev/video*
 sudo chmod 666 /dev/video0
-Face Recognition Import Error
+
+### Face Recognition Import Error
 pip uninstall face_recognition dlib -y
 pip install dlib
 pip install face_recognition --no-cache-dir
-Bank Data Not Loading
-python3 -c "import json; print(json.load(open('storage/bank_data.json')))"
-Recreate file:
-mkdir -p storage
 
+### Bank Data Not Loading
+python3 -c "import json; print(json.load(open('storage/bank_data.json')))"
+
+### Recreate file:
+
+mkdir -p storage
 cat > storage/bank_data.json << 'EOF2'
 {
     "name": "YOUR NAME",
@@ -182,16 +199,18 @@ cat > storage/bank_data.json << 'EOF2'
     "transactions": []
 }
 EOF2
-Port Already in Use
+
+### Port Already in Use
 lsof -ti:8080 | xargs kill -9
-Performance
+
+## Performance
 | Mode           | FPS   | Latency   |
 | -------------- | ----- | --------- |
 | CPU (HOG)      | 15-20 | 50-70ms   |
 | Face Encoding  | 5-10  | 100-200ms |
 | Liveness Check | 20-30 | 30-50ms   |
 
-Future Roadmap
+## Future Roadmap
 Multi-factor authentication (face + voice)
 Remote device locking
 Mobile companion app
@@ -200,7 +219,8 @@ Encrypted biometric storage
 Federated learning for privacy
 Edge AI processing
 Multi-camera support
-Contributing
+
+## Contributing
 1. Fork the repository
 2. Create feature branch
 git checkout -b feature/AmazingFeature
@@ -209,18 +229,20 @@ git commit -m 'Add AmazingFeature'
 4. Push to branch:
 git push origin feature/AmazingFeature
 5. Open Pull Request
-License
+
+## License
 Distributed under the MIT License. See LICENSE for more information.
 
-Author
-David Kimathi
+## Author
+### David Kimathi
 Github @David-Kimath1
 
-Acknowledgments
+## Acknowledgments
 face_recognition library by Adam Geitgey
 dlib by Davis King
 OpenCV community
 Flask framework
+
 <div align="center">
 
 Built with Python and OpenCV | For Secure Authentication
