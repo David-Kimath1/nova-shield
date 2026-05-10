@@ -1,4 +1,4 @@
-.# NOVA-SHIELD
+# NOVA-SHIELD
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -31,94 +31,58 @@ NOVA-SHIELD is a professional face recognition authentication system that distin
 
 ## Technology Stack
 
-- **Backend:** Flask (Python)
-- **Face Recognition:** `face_recognition` + `dlib`
-- **Computer Vision:** OpenCV
-- **Anti-Spoofing:** FFT analysis, EAR calculation
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Fonts:** Google Fonts (Inter)
+*   **Backend:** Flask (Python)
+*   **Face Recognition:** `face_recognition` + `dlib`
+*   **Computer Vision:** OpenCV
+*   **Anti-Spoofing:** FFT analysis, EAR calculation
+*   **Frontend:** HTML5, CSS3, JavaScript
+*   **Fonts:** Google Fonts (Inter)
 
 ---
 
-# Installation
+## Installation
 
-## Prerequisites
+### Prerequisites
 
-# System requirements
-# - Python 3.8 or higher
-# - Linux / macOS / Windows (WSL2 for camera)
-# - Webcam (built-in or external)
-# - 4GB RAM minimum
+System requirements:
+*   Python 3.8 or higher
+*   Linux / macOS / Windows (WSL2 for camera)
+*   Webcam (built-in or external)
+*   4GB RAM minimum
 
-## Step 1: Clone Repository
-git clone https://github.com/David-Kimath1/nova-shield.git
+### Step 1: Clone Repository
+git clone [https://github.com/David-Kimath1/nova-shield.git](https://github.com/David-Kimath1/nova-shield.git)
 cd nova-shield
 
-## Step 2: Create Virtual Environment
+Step 2: Create Virtual Environment
 python3 -m venv venv
 source venv/bin/activate
 # On Windows:
-# venv\script\activate
+# venv\Scripts\activate
 
-## Step 3: Install Dependencies
+Step 3: Install Dependencies
 pip install --upgrade pip
 pip install opencv-python face-recognition numpy flask scipy
 
-## Step 4: Register Your Face
+Step 4: Register Your Face
 python3 register_first_face.py
+
 Follow prompts:
-Enter your name
-Look at the camera
-Press SPACE to capture
-Press ESC to finish
 
-## Step 5: Run the System
-python3 liveness_shield.py
-Open browser:
-http://localhost:8080
+    Enter your name
 
-## Usage
-### Authenitcation Flow
+    Look at the camera
 
-### 1. Face Scanner Page
-Camera activates automatically
-Syste, detects face and analyzes liveness
-Checks for blinks, motion and texture patterns
-Green indicator = Live face detected
-Orange indicator = Photo/Video detected
+    Press SPACE to capture
 
-### 2. Verification Process
-Real face: Shows confidence score and liveness percentage
-Photo attact: Displays "PHOTO DETECTED" warning
-Click "Verify Identity: or wait for auto-verification
+    Press ESC to finish
 
-### 3. Bank Dashboard
-Shows account holder information
-Display current balance
-Lists recent transactions
-Session remains active while face is present
+    Step 5: Run the System
+    python3 liveness_shield.py
+    Open browser: http://localhost:8080
 
-## Anti Spoofing Tests
-
-| Test Case                 | Expected Result                   |
-| ------------------------- | --------------------------------- |
-| Real face with blinks     | Access granted                    |
-| Printed photo             | Access denied (Photo detected)    |
-| Phone screen showing face | Access denied (Screen pattern)    |
-| Video playback            | Access denied (No natural motion) |
-| Real face with glasses    | Access granted (if registered)    |
-
-
-## Face Registration
-To register multiple users:
-python3 register_first_face.py
-Enter a different name for each user
-
-## Configuration
-Edit bank account details:
-nano storage/bank_data.json
-Example configuration:
-{
+    UsageAuthentication FlowFace Scanner PageCamera activates automatically.System detects face and analyzes liveness.Checks for blinks, motion, and texture patterns.Green indicator = Live face detected.Orange indicator = Photo/Video detected.Verification ProcessReal face: Shows confidence score and liveness percentage.Photo attack: Displays "PHOTO DETECTED" warning.Click "Verify Identity" or wait for auto-verification.Bank DashboardShows account holder information.Displays current balance and recent transactions.Session remains active while face is present.Anti-Spoofing TestsTest CaseExpected ResultReal face with blinksAccess grantedPrinted photoAccess denied (Photo detected)Phone screen showing faceAccess denied (Screen pattern)Video playbackAccess denied (No natural motion)Real face with glassesAccess granted (if registered)ConfigurationFace RegistrationTo register multiple users, run:Bashpython3 register_first_face.py
+Enter a different name for each user.Edit Bank DetailsModify the following file: storage/bank_data.jsonExample configuration:JSON{
     "name": "JOHN DOE",
     "account_number": "98-765-4321",
     "balance": 25000.00,
@@ -138,31 +102,7 @@ Example configuration:
         }
     ]
 }
-
-## Security Features
-### Liveness Detection Methods
-### Blink Detection (EAR)
-Calculates Eye Aspect Ratio
-Monitors natural blink patterns
-Threshold: EAR < 0.2 indicates blink
-
-### Head Motion Analysis
-Tracks face position changes
-Detects natural head movement
-Rejects static images
-
-### Texture Frequency Analysis
-Applies FFT to face region
-Detects screen moire patterns
-Identifies print artifacts
-
-### Reflection Detection
-Identifies screen glare
-Detects unnatural bright spots
-Flags photo reflections
-
-## Security Layers
-Camera Input
+Security FeaturesLiveness Detection MethodsBlink Detection (EAR): Calculates Eye Aspect Ratio and monitors natural blink patterns. Threshold: EAR < 0.2 indicates a blink.Head Motion Analysis: Tracks face position changes and detects natural head movement to reject static images.Texture Frequency Analysis: Applies FFT to the face region to detect screen moire patterns and identify print artifacts.Reflection Detection: Identifies screen glare and unnatural bright spots to flag photo reflections.Security LayersPlaintextCamera Input
      ↓
 Face Detection
      ↓
@@ -173,23 +113,13 @@ Face Recognition      Photo/Video Alert
 Authentication
      ↓
 Session Grant
-
-## Troubleshooting
-### Camera Not Detected
-ls /dev/video*
+TroubleshootingCamera Not DetectedBashls /dev/video*
 sudo chmod 666 /dev/video0
-
-### Face Recognition Import Error
-pip uninstall face_recognition dlib -y
+Face Recognition Import ErrorBashpip uninstall face_recognition dlib -y
 pip install dlib
 pip install face_recognition --no-cache-dir
-
-### Bank Data Not Loading
-python3 -c "import json; print(json.load(open('storage/bank_data.json')))"
-
-### Recreate file:
-
-mkdir -p storage
+Bank Data Not LoadingCheck JSON validity:Bashpython3 -c "import json; print(json.load(open('storage/bank_data.json')))"
+Recreate file if corrupted:Bashmkdir -p storage
 cat > storage/bank_data.json << 'EOF2'
 {
     "name": "YOUR NAME",
@@ -199,54 +129,6 @@ cat > storage/bank_data.json << 'EOF2'
     "transactions": []
 }
 EOF2
-
-### Port Already in Use
-lsof -ti:8080 | xargs kill -9
-
-## Performance
-| Mode           | FPS   | Latency   |
-| -------------- | ----- | --------- |
-| CPU (HOG)      | 15-20 | 50-70ms   |
-| Face Encoding  | 5-10  | 100-200ms |
-| Liveness Check | 20-30 | 30-50ms   |
-
-## Future Roadmap
-Multi-factor authentication (face + voice)
-Remote device locking
-Mobile companion app
-Cloud dashboard
-Encrypted biometric storage
-Federated learning for privacy
-Edge AI processing
-Multi-camera support
-
-## Contributing
-1. Fork the repository
-2. Create feature branch
-git checkout -b feature/AmazingFeature
-3. Commit changes:
-git commit -m 'Add AmazingFeature'
-4. Push to branch:
-git push origin feature/AmazingFeature
-5. Open Pull Request
-
-## License
-Distributed under the MIT License. See LICENSE for more information.
-
-## Author
-### David Kimathi
-Github @David-Kimath1
-
-## Acknowledgments
-face_recognition library by Adam Geitgey
-dlib by Davis King
-OpenCV community
-Flask framework
-
-<div align="center">
-
-Built with Python and OpenCV | For Secure Authentication
-
-Report Bug · Request Feature
-</div>
+Port Already in UseBashlsof -ti:8080 | xargs kill -9
+PerformanceModeFPSLatencyCPU (HOG)15-2050-70msFace Encoding5-10100-200msLiveness Check20-3030-50msFuture RoadmapMulti-factor authentication (face + voice)Remote device locking and mobile companion appCloud dashboard and encrypted biometric storageFederated learning for privacyEdge AI processing and multi-camera supportContributingFork the repository.Create your feature branch: git checkout -b feature/AmazingFeature.Commit your changes: git commit -m 'Add AmazingFeature'.Push to the branch: git push origin feature/AmazingFeature.Open a Pull Request.LicenseDistributed under the MIT License. See LICENSE for more information.AuthorDavid KimathiGitHub: @David-Kimath1Acknowledgmentsface_recognition library by Adam Geitgeydlib by Davis KingOpenCV communityFlask framework
 
