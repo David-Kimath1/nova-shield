@@ -1,0 +1,11 @@
+{
+    "name": "DAVID KIMATHI",
+    "account_number": "01-234-5678",
+    "balance": 15420.50,
+    "currency": "KES",
+    "transactions": [
+        {"date": "2024-05-10", "desc": "Salary Deposit", "amount": "+45,000", "type": "credit"},
+        {"date": "2024-05-09", "desc": "Online Payment", "amount": "-2,500", "type": "debit"},
+        {"date": "2024-05-08", "desc": "ATM Withdrawal", "amount": "-10,000", "type": "debit"}
+    ]
+}
