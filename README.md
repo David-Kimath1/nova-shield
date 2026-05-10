@@ -9,58 +9,58 @@
 </p>
 
 <p align="center">
-  Enterprise-grade biometric authentication system with real-time liveness detection and anti-spoofing protection.
+  Enterprise-grade biometric authentication system with AI-powered liveness detection and anti-spoofing protection.
 </p>
 
 ---
 
-# ▌Overview
+# ◆ Overview
 
 NOVA-SHIELD is an AI-powered biometric authentication system designed to distinguish between real human faces and spoof attacks such as:
 
 - Printed photos
-- Phone screens
+- Mobile screen attacks
 - Replay videos
-- Static facial attacks
+- Static face images
 
-The system combines computer vision, liveness detection, and facial recognition to provide secure authentication for:
+The system combines facial recognition, computer vision, and liveness detection to provide secure authentication for:
 
 - Banking systems
-- Identity verification
 - Secure dashboards
+- Identity verification
 - Access control systems
 
 ---
 
-# ▌Features
+# ◆ Features
 
 | Module | Capabilities |
 |--------|--------------|
-| ◈ Face Recognition | Real-time face matching, Multiple face detection, High accuracy recognition |
-| ◈ Anti-Spoofing | Blink detection, Motion tracking, Reflection analysis, FFT texture detection |
-| ◈ Liveness Detection | EAR calculation, Natural movement verification, Screen/photo rejection |
-| ◈ Banking Dashboard | Balance display, Transactions, Secure authentication |
-| ◈ Security Layer | Session validation, Real-time verification, Spoof logging |
-| ◈ Interface | Glassmorphism UI, Responsive design, Professional layout |
+| Face Recognition | Real-time face matching, Multiple face detection, High-accuracy recognition |
+| Anti-Spoofing | Blink detection, Motion tracking, Reflection analysis, FFT texture detection |
+| Liveness Detection | EAR calculation, Natural movement verification, Screen/photo rejection |
+| Banking Dashboard | Account display, Transactions, Secure authentication |
+| Security Layer | Session validation, Real-time verification, Spoof logging |
+| Interface | Glassmorphism UI, Responsive design, Professional layout |
 
 ---
 
-# ▌Technology Stack
+# ◆ Technology Stack
 
 | Layer | Technology |
 |-------|------------|
-| ◈ Backend | Flask (Python) |
-| ◈ Face Recognition | `face_recognition`, `dlib` |
-| ◈ Computer Vision | OpenCV |
-| ◈ Anti-Spoofing | FFT Analysis, EAR Detection |
-| ◈ Frontend | HTML5, CSS3, JavaScript |
-| ◈ Styling | Google Fonts (Inter) |
+| Backend | Flask (Python) |
+| Face Recognition | `face_recognition`, `dlib` |
+| Computer Vision | OpenCV |
+| Anti-Spoofing | FFT Analysis, EAR Detection |
+| Frontend | HTML5, CSS3, JavaScript |
+| Styling | Google Fonts (Inter) |
 
 ---
 
-# ▌Installation
+# ◆ Installation
 
-## ◈ Prerequisites
+## ◉ Prerequisites
 
 System requirements:
 
@@ -71,7 +71,9 @@ System requirements:
 
 ---
 
-## ◈ Step 1 — Clone Repository
+## ◉ Setup Process
+
+### ■ Clone Repository
 
 ```bash
 git clone https://github.com/David-Kimath1/nova-shield.git
@@ -80,16 +82,16 @@ cd nova-shield
 
 ---
 
-## ◈ Step 2 — Create Virtual Environment
+### ■ Create Virtual Environment
 
-### Linux / macOS
+#### ▶ Linux / macOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### Windows
+#### ▶ Windows
 
 ```bash
 venv\Scripts\activate
@@ -97,7 +99,7 @@ venv\Scripts\activate
 
 ---
 
-## ◈ Step 3 — Install Dependencies
+### ■ Install Dependencies
 
 ```bash
 pip install --upgrade pip
@@ -106,7 +108,7 @@ pip install opencv-python face-recognition numpy flask scipy
 
 ---
 
-## ◈ Step 4 — Register Face
+### ■ Register Your Face
 
 ```bash
 python3 register_first_face.py
@@ -121,7 +123,7 @@ Follow prompts:
 
 ---
 
-## ◈ Step 5 — Run System
+### ■ Run System
 
 ```bash
 python3 liveness_shield.py
@@ -135,69 +137,144 @@ http://localhost:8080
 
 ---
 
-# ▌Authentication Flow
+# ◆ Authentication Flow
 
-## ◈ Face Scanner
+## ◉ Face Scanner
 
 | Indicator | Meaning |
 |-----------|----------|
-| 🟢 | Live face detected |
-| 🟠 | Photo/video spoof detected |
-| 🔴 | Verification denied |
+| LIVE | Real human face detected |
+| SPOOF | Photo/video attack detected |
+| DENIED | Verification failed |
 
 ---
 
-## ◈ Real Face Verification
+## ◉ Real Face Verification
+
+### ■ Authentication Success
 
 - Face matched successfully
-- Liveness percentage calculated
-- Access granted automatically
+- Liveness score calculated
+- Secure session created
 - Dashboard unlocked
 
 ---
 
-## ◈ Spoof Detection
+## ◉ Spoof Detection
 
-The system blocks:
+### ■ Blocked Attacks
+
+The system automatically blocks:
 
 - Printed photos
-- Mobile screen attacks
-- Replay videos
+- Phone replay attacks
+- Video playback attacks
 - Static face images
 
-Spoof attempts are automatically logged.
+Spoof attempts are logged in real time.
 
 ---
 
-# ▌Banking Dashboard
+# ◆ Banking Dashboard
+
+## ◉ Dashboard Features
 
 The integrated banking demo includes:
 
 - Account holder information
-- Balance display
+- Current balance display
 - Transaction history
 - Session verification
 - Real-time identity validation
 
-Session remains active only while verified face is present.
+### ■ Session Protection
+
+User sessions remain active only while the verified face is present.
 
 ---
 
-# ▌Anti-Spoofing Tests
+# ◆ Security Architecture
+
+```text
+Camera Input
+     │
+     ▼
+Face Detection
+     │
+     ▼
+Liveness Analysis ───────► Spoof Detection ───────► Reject
+     │                              │
+     ▼                              ▼
+Face Recognition              Photo/Video Alert
+     │
+     ▼
+Authentication
+     │
+     ▼
+Secure Session
+```
+
+---
+
+# ◆ Liveness Detection Methods
+
+## ◉ Blink Detection (EAR)
+
+### ■ Eye Aspect Ratio Analysis
+
+- Detects natural blinking patterns
+- Rejects static image attacks
+- Improves live verification accuracy
+
+---
+
+## ◉ Head Motion Analysis
+
+### ■ Movement Tracking
+
+- Tracks natural face movement
+- Detects frozen/static attacks
+- Enhances spoof detection reliability
+
+---
+
+## ◉ Texture Frequency Analysis
+
+### ■ FFT Pattern Detection
+
+- Detects monitor artifacts
+- Identifies screen moire patterns
+- Detects printed texture inconsistencies
+
+---
+
+## ◉ Reflection Detection
+
+### ■ Reflection Analysis
+
+- Detects glare from screens
+- Identifies unnatural reflections
+- Helps block replay attacks
+
+---
+
+# ◆ Anti-Spoofing Tests
 
 | Test Case | Result |
 |-----------|--------|
-| Real face with blinking | ✔ Granted |
-| Printed photo | ✖ Rejected |
-| Mobile screen replay | ✖ Rejected |
-| Video playback attack | ✖ Rejected |
-| Registered user with glasses | ✔ Granted |
+| Real face with blinking | GRANTED |
+| Printed photo | REJECTED |
+| Mobile screen replay | REJECTED |
+| Video playback attack | REJECTED |
+| Registered user with glasses | GRANTED |
 
 ---
 
-# ▌Configuration
+# ◆ Configuration
 
-## ◈ Register Multiple Users
+## ◉ Register Multiple Users
+
+### ■ Add Additional Faces
 
 ```bash
 python3 register_first_face.py
@@ -207,15 +284,17 @@ Use a unique username for each user.
 
 ---
 
-## ◈ Banking Data Configuration
+## ◉ Banking Data Configuration
 
-Edit:
+### ■ Edit Banking Information
+
+Modify:
 
 ```bash
 storage/bank_data.json
 ```
 
-Example:
+Example configuration:
 
 ```json
 {
@@ -242,66 +321,11 @@ Example:
 
 ---
 
-# ▌Security Architecture
+# ◆ Troubleshooting
 
-```text
-Camera Input
-     │
-     ▼
-Face Detection
-     │
-     ▼
-Liveness Analysis ───────► Spoof Detection ───────► Reject
-     │                              │
-     ▼                              ▼
-Face Recognition              Photo/Video Alert
-     │
-     ▼
-Authentication
-     │
-     ▼
-Secure Session
-```
+## ◉ Camera Not Detected
 
----
-
-# ▌Liveness Detection Methods
-
-## ◈ Blink Detection (EAR)
-
-- Eye Aspect Ratio calculations
-- Natural blink verification
-- Static image rejection
-
----
-
-## ◈ Head Motion Analysis
-
-- Tracks natural movement
-- Detects static spoof attacks
-- Improves verification reliability
-
----
-
-## ◈ Texture Frequency Analysis
-
-- FFT-based screen detection
-- Identifies display artifacts
-- Detects print inconsistencies
-
----
-
-## ◈ Reflection Detection
-
-- Detects glare patterns
-- Identifies monitor reflections
-- Rejects replay attacks
-
----
-
-# ▌Troubleshooting
-
-## ◈ Camera Not Detected
+### ■ Linux Camera Permissions
 
 ```bash
 ls /dev/video*
@@ -310,7 +334,9 @@ sudo chmod 666 /dev/video0
 
 ---
 
-## ◈ face_recognition Import Error
+## ◉ face_recognition Import Error
+
+### ■ Reinstall Dependencies
 
 ```bash
 pip uninstall face_recognition dlib -y
@@ -320,15 +346,17 @@ pip install face_recognition --no-cache-dir
 
 ---
 
-## ◈ Invalid Banking JSON
+## ◉ Invalid Banking JSON
 
-Validate JSON:
+### ■ Validate Configuration File
 
 ```bash
 python3 -c "import json; print(json.load(open('storage/bank_data.json')))"
 ```
 
-Recreate configuration:
+---
+
+### ■ Recreate JSON File
 
 ```bash
 mkdir -p storage
@@ -348,7 +376,9 @@ EOF
 
 ---
 
-## ◈ Port Already In Use
+## ◉ Port Already In Use
+
+### ■ Kill Running Process
 
 ```bash
 lsof -ti:8080 | xargs kill -9
@@ -356,21 +386,23 @@ lsof -ti:8080 | xargs kill -9
 
 ---
 
-# ▌Performance
+# ◆ Performance
 
 | Component | Performance |
 |-----------|-------------|
-| ◈ CPU Face Detection | 15–20 FPS |
-| ◈ Face Encoding | 5–10 FPS |
-| ◈ Liveness Detection | 20–30 FPS |
-| ◈ Average Latency | 30–70ms |
+| CPU Face Detection | 15–20 FPS |
+| Face Encoding | 5–10 FPS |
+| Liveness Detection | 20–30 FPS |
+| Average Latency | 30–70ms |
 
 ---
 
-# ▌Future Roadmap
+# ◆ Future Roadmap
+
+## ◉ Planned Features
 
 - Voice + Face multi-factor authentication
-- Remote device lock system
+- Remote device locking
 - Mobile companion application
 - Cloud dashboard integration
 - Encrypted biometric storage
@@ -380,9 +412,11 @@ lsof -ti:8080 | xargs kill -9
 
 ---
 
-# ▌Contributing
+# ◆ Contributing
 
-## ◈ Create Feature Branch
+## ◉ Development Workflow
+
+### ■ Create Feature Branch
 
 ```bash
 git checkout -b feature/AmazingFeature
@@ -390,7 +424,7 @@ git checkout -b feature/AmazingFeature
 
 ---
 
-## ◈ Commit Changes
+### ■ Commit Changes
 
 ```bash
 git commit -m "Add AmazingFeature"
@@ -398,7 +432,7 @@ git commit -m "Add AmazingFeature"
 
 ---
 
-## ◈ Push Branch
+### ■ Push Changes
 
 ```bash
 git push origin feature/AmazingFeature
@@ -406,13 +440,13 @@ git push origin feature/AmazingFeature
 
 ---
 
-## ◈ Open Pull Request
+### ■ Open Pull Request
 
 Submit your pull request for review.
 
 ---
 
-# ▌License
+# ◆ License
 
 Distributed under the MIT License.
 
@@ -420,17 +454,19 @@ See `LICENSE` for more information.
 
 ---
 
-# ▌Author
+# ◆ Author
 
-## David Kimathi
+## ◉ Developer Information
 
 | Platform | Link |
 |----------|------|
-| ◈ GitHub | https://github.com/David-Kimath1 |
+| GitHub | https://github.com/David-Kimath1 |
 
 ---
 
-# ▌Acknowledgments
+# ◆ Acknowledgments
+
+## ◉ Libraries & Frameworks
 
 - `face_recognition` by Adam Geitgey
 - `dlib` by Davis King
