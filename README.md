@@ -1,66 +1,77 @@
 # NOVA-SHIELD
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Linux-orange.svg)](https://linux.org)
-[![Face Recognition](https://img.shields.io/badge/Face%20Recognition-AI-red.svg)](https://github.com/ageitgey/face_recognition)
-[![Security](https://img.shields.io/badge/Security-Anti--Spoofing-purple.svg)]()
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/OpenCV-Computer%20Vision-red?style=for-the-badge&logo=opencv" />
+  <img src="https://img.shields.io/badge/Flask-Backend-black?style=for-the-badge&logo=flask" />
+  <img src="https://img.shields.io/badge/AI-Face%20Recognition-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Security-Anti--Spoofing-green?style=for-the-badge" />
+</p>
 
-> Enterprise-grade biometric authentication system with liveness detection and real-time anti-spoofing.
+<p align="center">
+  Enterprise-grade biometric authentication system with real-time liveness detection and anti-spoofing protection.
+</p>
 
 ---
 
-## Overview
+# ▌Overview
 
-NOVA-SHIELD is a professional face recognition authentication system designed to distinguish between real human faces and spoof attacks such as photos, videos, and screen replays.
+NOVA-SHIELD is an AI-powered biometric authentication system designed to distinguish between real human faces and spoof attacks such as:
 
-Built with computer vision and machine learning, the system provides secure biometric authentication for applications such as:
+- Printed photos
+- Phone screens
+- Replay videos
+- Static facial attacks
 
-- Banking dashboards
-- Access control systems
+The system combines computer vision, liveness detection, and facial recognition to provide secure authentication for:
+
+- Banking systems
 - Identity verification
-- Secure login systems
+- Secure dashboards
+- Access control systems
 
 ---
 
-## Features
+# ▌Features
 
-| Category | Features |
-|----------|----------|
-| **Face Recognition** | High-accuracy face matching, Multiple face detection, Real-time processing |
-| **Anti-Spoofing** | Blink detection, Head motion analysis, Texture frequency analysis, Reflection detection |
-| **Liveness Detection** | Eye Aspect Ratio (EAR) calculation, Motion tracking, Screen/print attack prevention |
-| **Banking Demo** | Account dashboard, Transaction history, Balance display |
-| **Security** | Session management, Real-time verification, Spoof attempt logging |
-| **UI/UX** | Glassmorphism design, Responsive layout, Professional interface |
-
----
-
-## Technology Stack
-
-- **Backend:** Flask (Python)
-- **Face Recognition:** `face_recognition` + `dlib`
-- **Computer Vision:** OpenCV
-- **Anti-Spoofing:** FFT analysis, EAR calculation
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Fonts:** Google Fonts (Inter)
+| Module | Capabilities |
+|--------|--------------|
+| ◈ Face Recognition | Real-time face matching, Multiple face detection, High accuracy recognition |
+| ◈ Anti-Spoofing | Blink detection, Motion tracking, Reflection analysis, FFT texture detection |
+| ◈ Liveness Detection | EAR calculation, Natural movement verification, Screen/photo rejection |
+| ◈ Banking Dashboard | Balance display, Transactions, Secure authentication |
+| ◈ Security Layer | Session validation, Real-time verification, Spoof logging |
+| ◈ Interface | Glassmorphism UI, Responsive design, Professional layout |
 
 ---
 
-## Installation
+# ▌Technology Stack
 
-### Prerequisites
+| Layer | Technology |
+|-------|------------|
+| ◈ Backend | Flask (Python) |
+| ◈ Face Recognition | `face_recognition`, `dlib` |
+| ◈ Computer Vision | OpenCV |
+| ◈ Anti-Spoofing | FFT Analysis, EAR Detection |
+| ◈ Frontend | HTML5, CSS3, JavaScript |
+| ◈ Styling | Google Fonts (Inter) |
+
+---
+
+# ▌Installation
+
+## ◈ Prerequisites
 
 System requirements:
 
-- Python 3.8 or higher
+- Python 3.8+
 - Linux / macOS / Windows
-- Webcam (built-in or external)
-- 4GB RAM minimum
+- Webcam
+- Minimum 4GB RAM
 
 ---
 
-### Step 1: Clone Repository
+## ◈ Step 1 — Clone Repository
 
 ```bash
 git clone https://github.com/David-Kimath1/nova-shield.git
@@ -69,16 +80,16 @@ cd nova-shield
 
 ---
 
-### Step 2: Create Virtual Environment
+## ◈ Step 2 — Create Virtual Environment
 
-#### Linux / macOS
+### Linux / macOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### Windows
+### Windows
 
 ```bash
 venv\Scripts\activate
@@ -86,7 +97,7 @@ venv\Scripts\activate
 
 ---
 
-### Step 3: Install Dependencies
+## ◈ Step 3 — Install Dependencies
 
 ```bash
 pip install --upgrade pip
@@ -95,28 +106,28 @@ pip install opencv-python face-recognition numpy flask scipy
 
 ---
 
-### Step 4: Register Your Face
+## ◈ Step 4 — Register Face
 
 ```bash
 python3 register_first_face.py
 ```
 
-Follow the prompts:
+Follow prompts:
 
-- Enter your name
-- Look at the camera
+- Enter username
+- Look at camera
 - Press `SPACE` to capture
 - Press `ESC` to finish
 
 ---
 
-### Step 5: Run the System
+## ◈ Step 5 — Run System
 
 ```bash
 python3 liveness_shield.py
 ```
 
-Open your browser:
+Open browser:
 
 ```bash
 http://localhost:8080
@@ -124,85 +135,79 @@ http://localhost:8080
 
 ---
 
-# Usage
+# ▌Authentication Flow
 
-## Authentication Flow
+## ◈ Face Scanner
 
-### Face Scanner Page
-
-- Camera activates automatically
-- System detects faces in real time
-- Liveness analysis starts instantly
-- Blink and motion tracking are monitored
-- Texture analysis checks for screen/photo attacks
-
-### Detection Results
-
-| Result | Meaning |
-|--------|---------|
-| 🟢 Green Indicator | Live human face detected |
-| 🟠 Orange Indicator | Photo/video spoof detected |
-| 🔴 Access Denied | Verification failed |
+| Indicator | Meaning |
+|-----------|----------|
+| 🟢 | Live face detected |
+| 🟠 | Photo/video spoof detected |
+| 🔴 | Verification denied |
 
 ---
 
-## Verification Process
+## ◈ Real Face Verification
 
-### Real Face
-
-- Confidence score displayed
-- Liveness percentage shown
-- User authentication granted
-- Dashboard access enabled
-
-### Photo / Video Attack
-
-- "PHOTO DETECTED" warning displayed
-- Access denied automatically
-- Spoof attempt logged
+- Face matched successfully
+- Liveness percentage calculated
+- Access granted automatically
+- Dashboard unlocked
 
 ---
 
-# Banking Dashboard
+## ◈ Spoof Detection
 
-The included banking demo interface provides:
+The system blocks:
+
+- Printed photos
+- Mobile screen attacks
+- Replay videos
+- Static face images
+
+Spoof attempts are automatically logged.
+
+---
+
+# ▌Banking Dashboard
+
+The integrated banking demo includes:
 
 - Account holder information
-- Current balance display
-- Recent transaction history
-- Secure session handling
+- Balance display
+- Transaction history
+- Session verification
+- Real-time identity validation
 
-The session remains active only while the verified face is present.
-
----
-
-# Anti-Spoofing Tests
-
-| Test Case | Expected Result |
-|-----------|----------------|
-| Real face with blinks | ✅ Access granted |
-| Printed photo | ❌ Access denied |
-| Phone screen showing face | ❌ Access denied |
-| Video playback attack | ❌ Access denied |
-| Real face with glasses | ✅ Access granted |
+Session remains active only while verified face is present.
 
 ---
 
-# Configuration
+# ▌Anti-Spoofing Tests
 
-## Register Multiple Users
+| Test Case | Result |
+|-----------|--------|
+| Real face with blinking | ✔ Granted |
+| Printed photo | ✖ Rejected |
+| Mobile screen replay | ✖ Rejected |
+| Video playback attack | ✖ Rejected |
+| Registered user with glasses | ✔ Granted |
 
-Run:
+---
+
+# ▌Configuration
+
+## ◈ Register Multiple Users
 
 ```bash
 python3 register_first_face.py
 ```
 
-Enter a different name for each user.
+Use a unique username for each user.
 
 ---
 
-## Modify Banking Data
+## ◈ Banking Data Configuration
 
 Edit:
 
@@ -210,7 +215,7 @@ Edit:
 storage/bank_data.json
 ```
 
-Example configuration:
+Example:
 
 ```json
 {
@@ -237,57 +242,66 @@ Example configuration:
 
 ---
 
-# Security Features
-
-## Liveness Detection Methods
-
-### Blink Detection (EAR)
-
-- Calculates Eye Aspect Ratio
-- Detects natural blinking patterns
-- Helps reject static photo attacks
-
-### Head Motion Analysis
-
-- Tracks face movement
-- Detects natural motion behavior
-- Prevents spoofing using fixed images
-
-### Texture Frequency Analysis
-
-- Uses FFT analysis
-- Detects screen moire patterns
-- Identifies printed image artifacts
-
-### Reflection Detection
-
-- Detects screen glare
-- Flags unnatural reflections
-- Helps identify phone or monitor attacks
-
----
-
-# Security Layers
+# ▌Security Architecture
 
 ```text
 Camera Input
-     ↓
+     │
+     ▼
 Face Detection
-     ↓
-Liveness Analysis ──→ Spoof Detection ──→ Reject
-     ↓                    ↓
-Face Recognition      Photo/Video Alert
-     ↓
+     │
+     ▼
+Liveness Analysis ───────► Spoof Detection ───────► Reject
+     │                              │
+     ▼                              ▼
+Face Recognition              Photo/Video Alert
+     │
+     ▼
 Authentication
-     ↓
-Session Grant
+     │
+     ▼
+Secure Session
 ```
 
 ---
 
-# Troubleshooting
+# ▌Liveness Detection Methods
 
-## Camera Not Detected
+## ◈ Blink Detection (EAR)
+
+- Eye Aspect Ratio calculations
+- Natural blink verification
+- Static image rejection
+
+---
+
+## ◈ Head Motion Analysis
+
+- Tracks natural movement
+- Detects static spoof attacks
+- Improves verification reliability
+
+---
+
+## ◈ Texture Frequency Analysis
+
+- FFT-based screen detection
+- Identifies display artifacts
+- Detects print inconsistencies
+
+---
+
+## ◈ Reflection Detection
+
+- Detects glare patterns
+- Identifies monitor reflections
+- Rejects replay attacks
+
+---
+
+# ▌Troubleshooting
+
+## ◈ Camera Not Detected
 
 ```bash
 ls /dev/video*
@@ -296,7 +310,7 @@ sudo chmod 666 /dev/video0
 
 ---
 
-## face_recognition Import Error
+## ◈ face_recognition Import Error
 
 ```bash
 pip uninstall face_recognition dlib -y
@@ -306,15 +320,15 @@ pip install face_recognition --no-cache-dir
 
 ---
 
-## Bank Data Not Loading
+## ◈ Invalid Banking JSON
 
-Check JSON validity:
+Validate JSON:
 
 ```bash
 python3 -c "import json; print(json.load(open('storage/bank_data.json')))"
 ```
 
-Recreate the file if corrupted:
+Recreate configuration:
 
 ```bash
 mkdir -p storage
@@ -334,7 +348,7 @@ EOF
 
 ---
 
-## Port Already in Use
+## ◈ Port Already In Use
 
 ```bash
 lsof -ti:8080 | xargs kill -9
@@ -342,73 +356,83 @@ lsof -ti:8080 | xargs kill -9
 
 ---
 
-# Performance
+# ▌Performance
 
-| Mode | FPS | Latency |
-|------|-----|----------|
-| CPU (HOG) | 15–20 FPS | 50–70ms |
-| Face Encoding | 5–10 FPS | 100–200ms |
-| Liveness Check | 20–30 FPS | 30–50ms |
+| Component | Performance |
+|-----------|-------------|
+| ◈ CPU Face Detection | 15–20 FPS |
+| ◈ Face Encoding | 5–10 FPS |
+| ◈ Liveness Detection | 20–30 FPS |
+| ◈ Average Latency | 30–70ms |
 
 ---
 
-# Future Roadmap
+# ▌Future Roadmap
 
-- Multi-factor authentication (Face + Voice)
-- Remote device locking
+- Voice + Face multi-factor authentication
+- Remote device lock system
 - Mobile companion application
-- Cloud dashboard
+- Cloud dashboard integration
 - Encrypted biometric storage
-- Federated learning for privacy
-- Edge AI processing
+- Federated learning
+- Edge AI optimization
 - Multi-camera support
 
 ---
 
-# Contributing
+# ▌Contributing
 
-1. Fork the repository
-2. Create your feature branch
+## ◈ Create Feature Branch
 
 ```bash
 git checkout -b feature/AmazingFeature
 ```
 
-3. Commit your changes
+---
+
+## ◈ Commit Changes
 
 ```bash
 git commit -m "Add AmazingFeature"
 ```
 
-4. Push to the branch
+---
+
+## ◈ Push Branch
 
 ```bash
 git push origin feature/AmazingFeature
 ```
 
-5. Open a Pull Request
+---
+
+## ◈ Open Pull Request
+
+Submit your pull request for review.
 
 ---
 
-# License
+# ▌License
 
 Distributed under the MIT License.
 
-See the `LICENSE` file for more information.
+See `LICENSE` for more information.
 
 ---
 
-# Author
+# ▌Author
 
 ## David Kimathi
 
-- GitHub: https://github.com/David-Kimath1
+| Platform | Link |
+|----------|------|
+| ◈ GitHub | https://github.com/David-Kimath1 |
 
 ---
 
-# Acknowledgments
+# ▌Acknowledgments
 
-- `face_recognition` library by Adam Geitgey
+- `face_recognition` by Adam Geitgey
 - `dlib` by Davis King
-- OpenCV community
-- Flask framework
+- OpenCV Community
+- Flask Framework
