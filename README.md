@@ -352,7 +352,7 @@ If there is no output:
 
 # Support
 
-- Email: david.kimathi@example.com
+- Email: mubichidavidkimathi@gmail.com
 - GitHub Issues: `David-Kimath1/nova-shield/issues`
 
 ---
