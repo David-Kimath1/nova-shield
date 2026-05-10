@@ -58,22 +58,46 @@ The system combines facial recognition, computer vision, and liveness detection 
 
 ---
 
-# ◆ Installation
+# ◆ Minimum System Requirements
 
-## ◉ Prerequisites
+## ◉ Hardware Requirements
 
-System requirements:
-
-- Python 3.8+
-- Linux / macOS / Windows
-- Webcam
-- Minimum 4GB RAM
+| Component | Requirement |
+|-----------|-------------|
+| Webcam | Built-in or USB webcam |
+| RAM | 2GB minimum (4GB recommended) |
+| Storage | 1GB free disk space |
+| CPU | Dual-core processor (2015+) |
 
 ---
 
-## ◉ Setup Process
+## ◉ Software Requirements
 
-### ■ Clone Repository
+| Software | Requirement |
+|----------|-------------|
+| Python | Version 3.8 or higher |
+| Operating System | Linux (Ubuntu/Debian/Mint), macOS, Windows (WSL2 recommended) |
+| Camera Drivers | Installed and working |
+
+---
+
+## ◉ Required Python Packages
+
+The following packages are automatically installed during setup:
+
+| Package | Purpose |
+|---------|---------|
+| `opencv-python` | Camera access and computer vision |
+| `face-recognition` | Face detection and encoding |
+| `numpy` | Numerical calculations |
+| `flask` | Web server backend |
+| `scipy` | Anti-spoofing calculations |
+
+---
+
+# ◆ Installation
+
+## ◉ Clone Repository
 
 ```bash
 git clone https://github.com/David-Kimath1/nova-shield.git
@@ -82,16 +106,18 @@ cd nova-shield
 
 ---
 
-### ■ Create Virtual Environment
+## ◉ Setup Virtual Environment
 
-#### ▶ Linux / macOS
+### ■ Linux / macOS
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-#### ▶ Windows
+---
+
+### ■ Windows
 
 ```bash
 venv\Scripts\activate
@@ -99,37 +125,39 @@ venv\Scripts\activate
 
 ---
 
-### ■ Install Dependencies
+## ◉ Install Dependencies
 
 ```bash
 pip install --upgrade pip
-pip install opencv-python face-recognition numpy flask scipy
+pip install opencv-python face-recognition flask numpy scipy
 ```
 
 ---
 
-### ■ Register Your Face
+## ◉ Register Your Face
 
 ```bash
 python3 register_first_face.py
 ```
 
-Follow prompts:
+### ■ Registration Instructions
 
 - Enter username
-- Look at camera
+- Look at the camera
 - Press `SPACE` to capture
 - Press `ESC` to finish
 
 ---
 
-### ■ Run System
+## ◉ Run The System
 
 ```bash
 python3 liveness_shield.py
 ```
 
-Open browser:
+---
+
+## ◉ Open Browser
 
 ```bash
 http://localhost:8080
